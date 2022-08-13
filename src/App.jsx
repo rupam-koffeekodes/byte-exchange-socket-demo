@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { websocketURL } from "./constants";
+import { useSelector } from "react-redux";
 import { useWebSocketContext } from "./context/WebSocketContext";
 import { selectChannels, selectMarket } from "./store/dataStoreSlice";
 // import {

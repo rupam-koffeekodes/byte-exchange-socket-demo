@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setDataInChannel } from "../store/dataStoreSlice";
 
@@ -19,10 +19,10 @@ export default function WebSocketContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    console.log("ws");
+    // console.log("ws");
     if (ws) {
       ws.onopen = (ev) => {
-        console.log(ev);
+        // console.log(ev);
       };
     }
   }, [ws]);
@@ -35,7 +35,7 @@ export default function WebSocketContextProvider({ children }) {
 
     ws.onmessage = (ev) => {
       const { data } = JSON.parse(ev.data);
-      console.log(data);
+      // console.log(data);
       dispatch(setDataInChannel({ channelName: "Market", channelData: data }));
       // setState(data);
     };
